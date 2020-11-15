@@ -10,7 +10,7 @@ import Nav from "./components/Nav";
 import "./styles/app.scss";
 
 //Import Data
-import data from "./util";
+import data from "./data";
 
 function App() {
   //State
@@ -44,6 +44,9 @@ function App() {
         audioRef={audioRef}
         setSongInfo={setSongInfo}
         songInfo={songInfo}
+        songs={songs}
+        setCurrentSong={setCurrentSong}
+        setSongs={setSongs}
       />
       <Library
         songs={songs}
