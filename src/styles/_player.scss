@@ -62,3 +62,19 @@ input[type="range"]::-webkit-slider-thumb {
   height: 16px;
   width: 16px;
 }
+
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
+  .time-control {
+    width: 90%;
+  }
+
+  .play-control {
+    width: 60%;
+  }
+}

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -18,10 +17,15 @@ const Player = ({
   setCurrentSong,
   setSongs,
 }) => {
-  //UseEffect
-  useEffect(() => {
+  //Event Handlers
+  const playSongHandler = () => {
+    isPlaying ? audioRef.current.pause() : audioRef.current.play();
+    setIsPlaying(!isPlaying);
+  };
+
+  const activeLibraryHandler = (nextPrev) => {
     const newSongs = songs.map((songClicked) => {
-      if (songClicked.id === currentSong.id) {
+      if (songClicked.id === nextPrev.id) {
         return {
           ...songClicked,
           active: true,
@@ -35,12 +39,6 @@ const Player = ({
     });
     setSongs(newSongs);
     if (isPlaying) audioRef.current.play();
-  }, [currentSong]);
-
-  //Event Handlers
-  const playSongHandler = () => {
-    isPlaying ? audioRef.current.pause() : audioRef.current.play();
-    setIsPlaying(!isPlaying);
   };
 
   const getTime = (time) => {
@@ -58,14 +56,17 @@ const Player = ({
     let currentIndex = songs.findIndex((song) => song.active);
     if (direction === "skip-forward") {
       await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+      activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
     }
     if (direction === "skip-back") {
       if ((currentIndex - 1) % songs.length === -1) {
         await setCurrentSong(songs[songs.length - 1]);
+        activeLibraryHandler(songs[songs.length - 1]);
         if (isPlaying) audioRef.current.play();
         return;
       }
       await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+      activeLibraryHandler(songs[(currentIndex - 1) % songs.length]);
     }
     if (isPlaying) audioRef.current.play();
   };
@@ -81,7 +82,7 @@ const Player = ({
         <p>{getTime(songInfo.currentTime)}</p>
         <div
           style={{
-            background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[0]})`,
+            background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`,
           }}
           className="track"
         >
