@@ -74,6 +74,16 @@ function App() {
 
   return (
     <div className={`App ${libraryStatus ? "library-active" : ""}`}>
+      <div class="ocean" style={{ background: `${currentSong.color[0]}` }}>
+        <div
+          class="wave"
+          style={{ background: `${currentSong.color[1]}` }}
+        ></div>
+        <div
+          class="wave"
+          style={{ background: `${currentSong.color[1]}` }}
+        ></div>
+      </div>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} isPlaying={isPlaying} />
       <Player
