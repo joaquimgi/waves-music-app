@@ -1,7 +1,10 @@
 # Calming Waves [Demo](https://joaquimgi.github.io/waves-music-app/)
 
-Music Player made with React JS, SASS and some CSS animation. This player was made following a course from Dev Ed. But with some tweaks from me to remove redundant code.
-<img src="./public/demo.png" alt="My cool demo app"/>(https://joaquimgi.github.io/waves-music-app/)
+Music Player made with React JS, SASS and some CSS animation. This player was made following a course from Dev Ed but with some tweaks from me to remove redundant code and a nice wave animation and a spinning album cover.
+
+<a href="https://joaquimgi.github.io/waves-music-app/">
+<img src="./public/demo.png" alt="My cool demo app"/>
+</a>
 
 ## Main tech used to complete this project
 
