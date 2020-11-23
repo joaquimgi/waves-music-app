@@ -21,7 +21,7 @@ Music Player made with React JS, SASS and some CSS animation. This player was ma
 #### Using NPM
 
 ```sh
-$ cd music-player
+$ cd waves-music-app
 $ npm install
 $ npm run start
 ```
